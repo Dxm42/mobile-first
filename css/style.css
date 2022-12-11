@@ -4,6 +4,13 @@
 
 :root {
     font-size: 65.2%;
+
+    --bg-h1: #CBC0D3;
+    --bg-main:  #EFF1FF;
+    --bg-h2:#E5E5E5;
+    --bg-header: #8E9AAF;
+    
+    --fc-h2: #4A4E69;
 }
 body {
     padding: 0;
@@ -17,10 +24,12 @@ body {
 
 
 header {
-    background:#8E9AAF;
+    background:var(--bg-header);
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    animation: topdown 700ms;
 
     
 }
@@ -51,12 +60,14 @@ h1 {
     line-height: 5.4rem;
     text-align: center;
     
-    background: #CBC0D3;
+    background: var(--bg-h1);
 }
 
 main {
-    background: #EFF1FF;
+    background:var(--bg-main);
     /* height: 100vh; */
+
+    animation: downtop 700ms 350ms reverse backwards;
     
 }
 
@@ -105,13 +116,13 @@ p {
 
     letter-spacing: 0.05em;
 
-    color: #4A4E69;
+    color: var(--fc-h2) ;
 
     text-align: center;
 
     width: 112px;
     height: 35px;
-    background: #E5E5E5;
+    background: var(--bg-h2);
     border-radius: 40px;
 
     position: absolute;
@@ -120,3 +131,23 @@ p {
     
 }
 
+
+@keyframes topdown {
+    0%{
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes downtop {
+    100% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+}
